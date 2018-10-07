@@ -47,18 +47,16 @@ GenStack<T>::~GenStack() {
 
 template <class T>
 void GenStack<T>::push(const T& d) {
-  //error check
   if (top >= size-1) {
-    //std::cout << "Stack full. Could not push " << d << endl;
-    GenStack temp(size);
+    GenStack temp(size); //create temp stack with equal size
     while(!this->isEmpty()) {
-      temp.push(this->pop());
+      temp.push(this->pop()); //copies and reverses stack into temp
     }
-    delete myArray;
-    size += 100;
-    myArray = new T[size];
+    delete myArray; //deletes original array
+    size += 100; //increases size by 100
+    myArray = new T[size]; //creates new array based off new size
     while(!temp.isEmpty()) {
-      this->push(temp.pop());
+      this->push(temp.pop()); //copies temp stack back into original
     }
     myArray[++top] = d;
   }
