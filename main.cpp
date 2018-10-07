@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
 
   ino.openIn(filePath);
   string line;
-  currentLine = 0;
+  int currentLine = 0;
   while(getline(ino.in,line)) {
     currentLine++;
     for (int i = 0; i < line.size()-1; i++) {
@@ -30,31 +30,42 @@ int main(int argc, char **argv) {
       }
       else if(line[i] == ')') {
         if(stack.peek() == '(') {
-          stack.pop();
+          cout << stack.pop() << " popped from stack." << endl;
         }
         else {
           //record error
+          cout << "On line " << currentLine << ", expected " <<  stack.peek() << " and found " << line[i] << endl;
+          return 0;
         }
       }
       else if(line[i] == ']') {
         if(stack.peek() == '[') {
-          stack.pop();
+          cout << stack.pop() << " popped from stack." << endl;
         }
         else {
           //record error
+          cout << "On line " << currentLine << ", expected " <<  stack.peek() << " and found " << line[i] << endl;
+          return 0;
         }
       }
       else if(line[i] == '}') {
         if(stack.peek() == '{') {
-          stack.pop();
+          cout << stack.pop() << " popped from stack." << endl;
         }
         else {
           //record error
+          cout << "On line " << currentLine << ", expected " <<  stack.peek() << " and found " << line[i] << endl;
+          return 0;
         }
       }
 
     }
   }
+
+  while(!stack.isEmpty()) {
+    cout << "End of file reached, expecting " << stack.pop() << endl;
+  }
+
 
   /*GenStack<char> g(50);
   cout << g.size << endl;

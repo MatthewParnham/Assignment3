@@ -57,7 +57,7 @@ void GenStack<T>::push(const T& d) {
 }
 
 template <class T>
-T GenStack<T>::pop() {
+T GenStack<T>::pop() 
   //error check
   if (top < 0) {
     std::cout << "Stack empty. Nothing to pop." << endl;
