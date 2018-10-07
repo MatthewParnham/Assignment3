@@ -67,12 +67,13 @@ int main(int argc, char **argv) {
   }
 
 
-  /*GenStack<char> g(50);
+  GenStack<char> g(2);
   cout << g.size << endl;
   g.push('c');
   g.push('a');
   g.push('t');
+  cout << g.size << endl;
   cout << g.pop() << endl;
   cout << g.pop() << endl;
-  cout << g.pop() << endl;*/
+  cout << g.pop() << endl;
 }

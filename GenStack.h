@@ -49,7 +49,18 @@ template <class T>
 void GenStack<T>::push(const T& d) {
   //error check
   if (top >= size-1) {
-    std::cout << "Stack full. Could not push " << d << endl;
+    //std::cout << "Stack full. Could not push " << d << endl;
+    GenStack temp(size);
+    while(!this->isEmpty()) {
+      temp.push(this->pop());
+    }
+    delete myArray;
+    size += 100;
+    myArray = new T[size];
+    while(!temp.isEmpty()) {
+      this->push(temp.pop());
+    }
+    myArray[++top] = d;
   }
   else {
     myArray[++top] = d;
