@@ -28,6 +28,7 @@ int main(int argc, char **argv) {
         stack.push(line[i]);
         cout << "On line " << currentLine << ", " << line[i] << " added to stack." << endl;
       }
+      
       else if(line[i] == ')') {
         if(stack.peek() == '(') {
           cout << stack.pop() << " popped from stack." << endl;
