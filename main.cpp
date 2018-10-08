@@ -66,7 +66,7 @@ int main(int argc, char **argv) {
     cout << "End of file reached, expecting " << stack.pop() << endl;
   }
 
-
+/*
   GenStack<char> g(2);
   cout << g.size << endl;
   g.push('c');
@@ -75,5 +75,5 @@ int main(int argc, char **argv) {
   cout << g.size << endl;
   cout << g.pop() << endl;
   cout << g.pop() << endl;
-  cout << g.pop() << endl;
+  cout << g.pop() << endl;*/
 }

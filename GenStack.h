@@ -5,6 +5,8 @@
 
 using namespace std;
 
+//Declarations =================================================================
+
 template <class T>
 class GenStack {
 public:
@@ -24,6 +26,8 @@ public:
 
   T *myArray;
 };
+
+//Definitions ==================================================================
 
 template <class T>
 GenStack<T>::GenStack() {
@@ -69,6 +73,7 @@ template <class T>
 T GenStack<T>::pop() {
   //error check
   if (top < 0) {
+    //make sure to throw an exception
     std::cout << "Stack empty. Nothing to pop." << endl;
     return '\0';
   }
