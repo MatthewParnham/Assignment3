@@ -15,20 +15,28 @@ int main(int argc, char **argv) {
     filePath = argv[1];
   }
 
-
+//Declarations
   GenStack<char> stack(100);
   InOut ino;
   SynCheck checker;
-  while(true) {
-    ino.openIn(filePath);
-    cout << checker.delimMatch(ino.in, stack) << endl;
-    ino.closeIn();
+
+
+  while(true) { //loops until user chooses to end
+
+    ino.openIn(filePath);//attempts to open ifstream with filepath
+    bool check = checker.delimMatch(ino.in, stack); //returns true if no errors & false if errors
+    ino.closeIn(); //close file
+
+    if(check) { //tells user if program had errors or not
+      cout << "No delimiter errors were found in " << filePath << endl;
+    }
+
     cout << "Would you like to check another file? (y/n)" << endl;
     string input;
     cin >> input;
-    if(input == "y") {
+    if(input == "y" || input == "Y") {
       cout << "Please enter file name:" << endl;
-      cin >> filePath;
+      cin >> filePath; // replaces filePath variable w/ user input
     }
     else {
       break;
