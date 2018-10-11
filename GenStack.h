@@ -20,6 +20,7 @@ public:
 
   bool isFull(); //check if stack is full
   bool isEmpty(); //check if stack is empty
+  void resizeStack(); //doubles stack size
 
   int size;
   int top;
@@ -52,16 +53,7 @@ GenStack<T>::~GenStack() {
 template <class T>
 void GenStack<T>::push(const T& d) {
   if (top >= size-1) {
-    GenStack temp(size); //create temp stack with equal size
-    while(!this->isEmpty()) {
-      temp.push(this->pop()); //copies and reverses stack into temp
-    }
-    delete myArray; //deletes original array
-    size += 100; //increases size by 100
-    myArray = new T[size]; //creates new array based off new size
-    while(!temp.isEmpty()) {
-      this->push(temp.pop()); //copies temp stack back into original
-    }
+    this->resizeStack();
     myArray[++top] = d;
   }
   else {
@@ -99,6 +91,20 @@ bool GenStack<T>::isFull() {
 template <class T>
 bool GenStack<T>::isEmpty() {
   return (top == -1);
+}
+
+template <class T>
+void GenStack<T>::resizeStack() {
+  GenStack temp(size); //create temp stack with equal size
+  while(!this->isEmpty()) {
+    temp.push(this->pop()); //copies and reverses stack into temp
+  }
+  delete myArray; //deletes original array
+  size *= 2; //increases size by * 2
+  myArray = new T[size]; //creates new array based off new size
+  while(!temp.isEmpty()) {
+    this->push(temp.pop()); //copies temp stack back into original
+  }
 }
 
 #endif
