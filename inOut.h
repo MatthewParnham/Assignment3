@@ -11,9 +11,9 @@ public:
   InOut(); //default constructor
   ~InOut(); //destructor
 
-  void openIn(string path);
-  void closeIn();
-  string readLine();
+  void openIn(string path); //open ifstream
+  void closeIn(); //close ifstream
+  string readLine(); //reads a line
 
   void openOut(string path);
   void closeOut();

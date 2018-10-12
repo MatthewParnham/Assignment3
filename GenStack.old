@@ -33,7 +33,7 @@ GenStack<T>::GenStack() {
 }
 
 template <class T>
-GenStack<T>::GenStack(int maxSize) {
+GenStack<T>::GenStack(int maxSize) { //[[[[[[[[[[[[[[[[[[
   myArray = new T[maxSize];
   size = maxSize;
   top = -1;

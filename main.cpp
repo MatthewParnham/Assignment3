@@ -27,7 +27,7 @@ int main(int argc, char **argv) {
     bool check = checker.delimMatch(ino.in, stack); //returns true if no errors & false if errors
     ino.closeIn(); //close file
 
-    if(check) { //tells user if program had errors or not
+    if(check) { //tells user if program had no errors
       cout << "No delimiter errors were found in " << filePath << endl;
     }
 

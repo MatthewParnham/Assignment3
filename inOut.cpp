@@ -11,14 +11,14 @@ InOut::~InOut() {
 
 } //destructor
 
-void InOut::openIn(string path) {
+void InOut::openIn(string path) { //opens file w/ path. terminates if failure
   in.open(path);
   if(!in) {
     cerr << "File not found. Execution terminated.\n";
     exit(EXIT_FAILURE);
   }
 }
-void InOut::closeIn() {
+void InOut::closeIn() { //closes ifstream
   in.close();
 }
 string InOut::readLine() {

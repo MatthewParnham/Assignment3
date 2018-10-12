@@ -10,7 +10,7 @@ public:
   SynCheck();
   ~SynCheck();
 
-  bool delimMatch(ifstream& file, GenStack<char>& stack);
+  bool delimMatch(ifstream& file, GenStack<char>& stack); //matches delimiters
 };
 
 #endif
