@@ -2,6 +2,7 @@
 #define GENSTACK_H
 
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
@@ -65,8 +66,7 @@ template <class T>
 T GenStack<T>::pop() {
   //error check
   if (top < 0) {
-    //make sure to throw an exception
-    std::cout << "Stack empty. Nothing to pop." << endl;
+    throw std::runtime_error("Stack empty. Nothing to pop."); //empty stack exception
     return '\0';
   }
   else {

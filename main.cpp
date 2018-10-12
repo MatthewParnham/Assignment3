@@ -2,6 +2,7 @@
 #include "inOut.h"
 #include "SynCheck.h"
 #include <iostream>
+#include <stdexcept>
 
 using namespace std;
 
